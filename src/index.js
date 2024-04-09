@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
 //this function fetches the db from the provided url, it also determines the place holding page  when the DOM is utilised
 function showFilm () {
   const filminfo = document.getElementById("films");
-  fetch("https://json-deploy-5pkc.onrender.com/films")
+  fetch("http://localhost:3000/films")
 
   .then(response => response.json())
   .then((info) => {
