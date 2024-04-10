@@ -1,6 +1,6 @@
 //$ npx json-server db.json
 document.addEventListener("DOMContentLoaded", () => {
-  showFilm()
+  showFilm() 
  });
 
 
@@ -23,6 +23,19 @@ document.addEventListener("DOMContentLoaded", () => {
 //
   const ticketsAvailable = document.getElementById("ticket-num")
 
+
+
+//this function fills the slotsin the movie information section
+function movieDetails(film){
+  poster.src = film.poster;
+  title.innerText = `${film.title}`;
+  runtime.innerText = `${film.runtime}`;
+  showtime.innerText = `${film.showtime}`;
+  description.innerText = `${film.description}`;
+  capacity.innerText = `${film.capacity}`;
+  tickets_sold.innerText = `${film.tickets_sold}`;
+  ticketsAvailable.innerText = `${film.ticket-num}`;
+}
 
 //this function fetches the db from the provided url, it also determines the place holding page  when the DOM is utilised
 function showFilm () {
@@ -56,16 +69,12 @@ function showFilm () {
             console.log(film.title);             
             });
           });
-}  
+} 
 
-//this function fills the slotsin the movie information section
-function movieDetails(film){
-  poster.src = film.poster;
-  title.innerText = `${film.title}`;
-  runtime.innerText = `${film.runtime}`;
-  showtime.innerText = `${film.showtime}`;
-  description.innerText = `${film.description}`;
-  capacity.innerText = `${film.capacity}`;
-  tickets_sold.innerText = `${film.tickets_sold}`;
-  ticketsAvailable.innerText = `${film.ticket-num}`;
-}
+//function that calculates the content within the info card
+    const ticketnum = document.getElementById("ticket-num")
+    ticketnum.addEventListener("click", function buttonClicked() {
+      const calculate = capacity - tickets_sold;
+      return calculate;
+    });
+
